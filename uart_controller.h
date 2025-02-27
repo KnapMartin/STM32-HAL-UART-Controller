@@ -13,9 +13,10 @@
 #include <cstdint>
 #include "main.h"
 
-#define UART_CTL_VER "0.1.0"
-#define UART_CTL_BUFFLEN 64
-#define UART_CTL_MAX_TERMINATORS 16
+#define UART_CTL_VER "0.1.1"
+
+constexpr uint8_t BUFFLEN{64};
+constexpr uint8_t MAX_TERMINATORS{16};
 
 class UartController
 {
@@ -49,9 +50,9 @@ private:
 	bool m_txReady;
 	uint8_t m_rxChar;
 	uint8_t m_rxCtr;
-	uint8_t m_rxBuffer[UART_CTL_BUFFLEN];
+	uint8_t m_rxBuffer[BUFFLEN];
 	bool m_rxReady;
-	std::array<char, UART_CTL_MAX_TERMINATORS> m_terminators;
+	std::array<char, MAX_TERMINATORS> m_terminators;
 };
 
 #endif /* INC_UART_CONTROLLER_H_ */

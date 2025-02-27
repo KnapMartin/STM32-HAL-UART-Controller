@@ -93,7 +93,7 @@ UartController::State UartController::updateInterruptRx(
         m_rxBuffer[m_rxCtr] = m_rxChar;
         ++m_rxCtr;
 
-        if (std::find(m_terminators.begin(), m_terminators.end(), m_rxChar) != m_terminators.end() || m_rxCtr >= UART_CTL_BUFFLEN - 1)
+        if (std::find(m_terminators.begin(), m_terminators.end(), m_rxChar) != m_terminators.end() || m_rxCtr >= BUFFLEN - 1)
 		{
 			m_rxBuffer[m_rxCtr] = '\0';
 			m_rxReady = true;
